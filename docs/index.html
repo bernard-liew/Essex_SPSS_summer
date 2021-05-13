@@ -32,7 +32,7 @@
   
   
 
-<link rel="next" href="trick-1-paste-to-syntax.html"/>
+<link rel="next" href="trick1.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -134,17 +134,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="" data-path="trick-1-paste-to-syntax.html"><a href="trick-1-paste-to-syntax.html"><i class="fa fa-check"></i>Trick 1 - Paste to syntax</a></li>
-<li class="chapter" data-level="" data-path="trick-2-setting-your-work-directory.html"><a href="trick-2-setting-your-work-directory.html"><i class="fa fa-check"></i>Trick 2 - Setting your work directory</a></li>
-<li class="chapter" data-level="" data-path="trick-3-importing-data.html"><a href="trick-3-importing-data.html"><i class="fa fa-check"></i>Trick 3 - Importing data</a></li>
-<li class="chapter" data-level="" data-path="trick-4-rename-columns.html"><a href="trick-4-rename-columns.html"><i class="fa fa-check"></i>Trick 4 - Rename columns</a></li>
-<li class="chapter" data-level="" data-path="trick-5-filter-rows.html"><a href="trick-5-filter-rows.html"><i class="fa fa-check"></i>Trick 5 - Filter rows</a></li>
-<li class="chapter" data-level="" data-path="trick-6-create-new-variables.html"><a href="trick-6-create-new-variables.html"><i class="fa fa-check"></i>Trick 6 - Create new variables</a></li>
-<li class="chapter" data-level="" data-path="trick-7-aggregate-data.html"><a href="trick-7-aggregate-data.html"><i class="fa fa-check"></i>Trick 7 - Aggregate data</a></li>
-<li class="chapter" data-level="" data-path="trick-8-group-by-function.html"><a href="trick-8-group-by-function.html"><i class="fa fa-check"></i>Trick 8 - Group by function</a></li>
-<li class="chapter" data-level="" data-path="trick-9-wide-to-long.html"><a href="trick-9-wide-to-long.html"><i class="fa fa-check"></i>Trick 9 - Wide to long</a></li>
-<li class="chapter" data-level="" data-path="trick-10-long-to-wide.html"><a href="trick-10-long-to-wide.html"><i class="fa fa-check"></i>Trick 10 - Long to wide</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="trick1.html"><a href="trick1.html"><i class="fa fa-check"></i><b>2</b> Trick 1 - Paste to syntax</a></li>
+<li class="chapter" data-level="3" data-path="trick2.html"><a href="trick2.html"><i class="fa fa-check"></i><b>3</b> Trick 2 - Setting your work directory</a></li>
+<li class="chapter" data-level="4" data-path="trick3.html"><a href="trick3.html"><i class="fa fa-check"></i><b>4</b> Trick 3 - Importing data</a></li>
+<li class="chapter" data-level="5" data-path="trick4.html"><a href="trick4.html"><i class="fa fa-check"></i><b>5</b> Trick 4 - Rename columns</a></li>
+<li class="chapter" data-level="6" data-path="trick5.html"><a href="trick5.html"><i class="fa fa-check"></i><b>6</b> Trick 5 - Filter rows</a></li>
+<li class="chapter" data-level="7" data-path="trick6.html"><a href="trick6.html"><i class="fa fa-check"></i><b>7</b> Trick 6 - Create new variables</a></li>
+<li class="chapter" data-level="8" data-path="trick7.html"><a href="trick7.html"><i class="fa fa-check"></i><b>8</b> Trick 7 - Aggregate data</a></li>
+<li class="chapter" data-level="9" data-path="trick8.html"><a href="trick8.html"><i class="fa fa-check"></i><b>9</b> Trick 8 - Group by function</a></li>
+<li class="chapter" data-level="10" data-path="trick9.html"><a href="trick9.html"><i class="fa fa-check"></i><b>10</b> Trick 9 - Wide to long</a></li>
+<li class="chapter" data-level="11" data-path="trick10.html"><a href="trick10.html"><i class="fa fa-check"></i><b>11</b> Trick 10 - Long to wide</a></li>
+<li class="chapter" data-level="12" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>12</b> Conclusion</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -170,18 +171,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="author"><em>Bernard Liew</em></p>
 <p class="date"><em>2021-05-13</em></p>
 </div>
-<div id="introduction" class="section level1 unnumbered">
-<h1>Introduction</h1>
+<div id="introduction" class="section level1" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
 <p>Most people interact with SPSS using what I call the “point and click” interface. A point-click method is not wrong per-se, I use it. The bad thing about the point-click method is that:</p>
 <ol style="list-style-type: decimal">
 <li><p>You cannot easily remember what you did. Try recalling the exact order of actions you undertook the last time you analyzed your data in SPSS. It is for this reason why one gets nervous reproducing the results.</p></li>
 <li><p>It gets tedious really quickly, especially if you want to do the same thing repeatedly.</p></li>
 </ol>
-<p>The alternative to the “point and click” interface, is using the <strong>SPSS syntax</strong>. Syntax is all about typing. You can open a fresh syntax like in <a href="index.html#fig:first-syntax">1</a>, populate it with commands to run, and save it. My rule of thumb is, when you spend so long getting something commands running, save your commands, not your results.</p>
+<p>The alternative to the “point and click” interface, is using the <strong>SPSS syntax</strong>. Syntax is all about typing. You can open a fresh syntax like in Figure <a href="index.html#fig:first-syntax">1.1</a>, populate it with commands to run, and save it. My rule of thumb is, when you spend so long getting something commands running, save your commands, not your results.</p>
 <div class="figure"><span id="fig:first-syntax"></span>
-<img src="images/open_syntax.png" alt="Open your first syntax" width="50%" />
+<img src="images/open_syntax.png" alt="Open your first syntax" width="100%" />
 <p class="caption">
-Figure 1: Open your first syntax
+Figure 1.1: Open your first syntax
+</p>
+</div>
+<p>Figure <a href="index.html#fig:full-syntax">1.2</a> shows what a full syntax looks like when you string together a bunch of commands.</p>
+<div class="figure"><span id="fig:full-syntax"></span>
+<img src="images/example_syntax.png" alt="What a full syntax looks like" width="100%" />
+<p class="caption">
+Figure 1.2: What a full syntax looks like
 </p>
 </div>
 
@@ -192,7 +200,7 @@ Figure 1: Open your first syntax
         </div>
       </div>
 
-<a href="trick-1-paste-to-syntax.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="trick1.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

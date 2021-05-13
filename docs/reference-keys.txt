@@ -1,4 +1,5 @@
 fig:first-syntax
+fig:full-syntax
 fig:paste-syntax
 fig:paste-syntax2
 fig:play
@@ -10,3 +11,15 @@ fig:aggregate
 fig:group-by
 fig:ugly
 fig:tidy
+introduction
+trick1
+trick2
+trick3
+trick4
+trick5
+trick6
+trick7
+trick8
+trick9
+trick10
+conclusion

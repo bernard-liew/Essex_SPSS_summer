@@ -8,7 +8,7 @@ bibliography: book.bib
 biblio-style: apalike
 link-citations: yes
 ---
-# Introduction {-}
+# Introduction 
 
 Most people interact with SPSS using what I call the "point and click" interface. A point-click method is not wrong per-se, I use it. The bad thing about the point-click method is that:
 
@@ -16,10 +16,17 @@ Most people interact with SPSS using what I call the "point and click" interface
 
 2) It gets tedious really quickly, especially if you want to do the same thing repeatedly.
 
-The alternative to the "point and click" interface, is using the **SPSS syntax**. Syntax is all about typing. You can open a fresh syntax like in \@ref(fig:first-syntax), populate it with commands to run, and save it. My rule of thumb is, when you spend so long getting something commands running, save your commands, not your results.
+The alternative to the "point and click" interface, is using the **SPSS syntax**. Syntax is all about typing. You can open a fresh syntax like in Figure \@ref(fig:first-syntax), populate it with commands to run, and save it. My rule of thumb is, when you spend so long getting something commands running, save your commands, not your results.
 
 
 <div class="figure">
-<img src="images/open_syntax.png" alt="Open your first syntax" width="50%" />
+<img src="images/open_syntax.png" alt="Open your first syntax" width="100%" />
 <p class="caption">(\#fig:first-syntax)Open your first syntax</p>
+</div>
+
+Figure \@ref(fig:full-syntax) shows what a full syntax looks like when you string together a bunch of commands.
+
+<div class="figure">
+<img src="images/example_syntax.png" alt="What a full syntax looks like" width="100%" />
+<p class="caption">(\#fig:full-syntax)What a full syntax looks like</p>
 </div>

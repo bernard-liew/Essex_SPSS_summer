@@ -145,6 +145,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="trick-8-group-by-function.html"><a href="trick-8-group-by-function.html"><i class="fa fa-check"></i>Trick 8 - Group by function</a></li>
 <li class="chapter" data-level="" data-path="trick-9-wide-to-long.html"><a href="trick-9-wide-to-long.html"><i class="fa fa-check"></i>Trick 9 - Wide to long</a></li>
 <li class="chapter" data-level="" data-path="trick-10-long-to-wide.html"><a href="trick-10-long-to-wide.html"><i class="fa fa-check"></i>Trick 10 - Long to wide</a></li>
+<li class="chapter" data-level="1" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>1</b> Conclusion</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -170,10 +171,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="figure"><span id="fig:ugly"></span>
 <img src="images/wide_data.png" alt="Wide data" width="100%" />
 <p class="caption">
-Figure 11: Wide data
+Figure 0.12: Wide data
 </p>
 </div>
-<p>Typically data is keyed into Excel in the wide format like in Figure <a href="trick-9-wide-to-long.html#fig:ugly">11</a>. In &gt; 90% of any data analysis, data should <strong>NOT</strong> be in this format. The only thing I know in SPSS that requires data to be in the wide format is when you want to use Repeated Measures Anova or a Paired t test. So it is useful to know how to convert a data to a long format since &gt; 90% of SPSS function requires data to be in a long format.</p>
+<p>Typically data is keyed into Excel in the wide format like in Figure <a href="trick-9-wide-to-long.html#fig:ugly">0.12</a>. In &gt; 90% of any data analysis, data should <strong>NOT</strong> be in this format. The only thing I know in SPSS that requires data to be in the wide format is when you want to use Repeated Measures Anova or a Paired t test. So it is useful to know how to convert a data to a long format since &gt; 90% of SPSS function requires data to be in a long format.</p>
 <p><code>/MAKE val FROM aexttorq_pre aexttorq_post</code> says collect all the variables <code>aexttorq_pre</code>, <code>aexttorq_post</code> and stack their values on top of each other. The column containing the values is called <code>val</code>. The column where the names of the values are stored is called <code>mediator</code>. Remember, you can call the new columns anything you want. <code>/KEEP=id grp time</code> simple says keep the following columns in the new data.</p>
 <p>Highlight this command and press the play button.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="trick-9-wide-to-long.html#cb8-1" aria-hidden="true" tabindex="-1"></a>VARSTOCASES</span>
@@ -181,11 +182,11 @@ Figure 11: Wide data
 <span id="cb8-3"><a href="trick-9-wide-to-long.html#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>INDEX<span class="ot">=</span><span class="fu">mediator</span>(val) </span>
 <span id="cb8-4"><a href="trick-9-wide-to-long.html#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>KEEP<span class="ot">=</span>id grp time</span>
 <span id="cb8-5"><a href="trick-9-wide-to-long.html#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span><span class="cn">NULL</span><span class="ot">=</span>KEEP.</span></code></pre></div>
-<p>After running the command, this is what the results looks like in Figure <a href="trick-9-wide-to-long.html#fig:tidy">12</a>.</p>
+<p>After running the command, this is what the results looks like in Figure <a href="trick-9-wide-to-long.html#fig:tidy">0.13</a>.</p>
 <div class="figure"><span id="fig:tidy"></span>
 <img src="images/long_data.png" alt="Long data" width="100%" />
 <p class="caption">
-Figure 12: Long data
+Figure 0.13: Long data
 </p>
 </div>
 </div>

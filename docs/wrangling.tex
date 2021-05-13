@@ -127,8 +127,7 @@
 \tableofcontents
 }
 \hypertarget{introduction}{%
-\chapter*{Introduction}\label{introduction}}
-\addcontentsline{toc}{chapter}{Introduction}
+\chapter{Introduction}\label{introduction}}
 
 Most people interact with SPSS using what I call the ``point and click'' interface. A point-click method is not wrong per-se, I use it. The bad thing about the point-click method is that:
 
@@ -140,17 +139,22 @@ Most people interact with SPSS using what I call the ``point and click'' interfa
   It gets tedious really quickly, especially if you want to do the same thing repeatedly.
 \end{enumerate}
 
-The alternative to the ``point and click'' interface, is using the \textbf{SPSS syntax}. Syntax is all about typing. You can open a fresh syntax like in \ref{fig:first-syntax}, populate it with commands to run, and save it. My rule of thumb is, when you spend so long getting something commands running, save your commands, not your results.
+The alternative to the ``point and click'' interface, is using the \textbf{SPSS syntax}. Syntax is all about typing. You can open a fresh syntax like in Figure \ref{fig:first-syntax}, populate it with commands to run, and save it. My rule of thumb is, when you spend so long getting something commands running, save your commands, not your results.
 
 \begin{figure}
-\includegraphics[width=0.5\linewidth]{images/open_syntax} \caption{Open your first syntax}\label{fig:first-syntax}
+\includegraphics[width=1\linewidth]{images/open_syntax} \caption{Open your first syntax}\label{fig:first-syntax}
 \end{figure}
 
-\hypertarget{trick-1---paste-to-syntax}{%
-\chapter*{Trick 1 - Paste to syntax}\label{trick-1---paste-to-syntax}}
-\addcontentsline{toc}{chapter}{Trick 1 - Paste to syntax}
+Figure \ref{fig:full-syntax} shows what a full syntax looks like when you string together a bunch of commands.
 
-The good thing about interacting with SPSS using syntax, is that you do not have to be a total convert. You can continue using the ``point and click'' interface, but instead of executing the command, press \textbf{paste} as you see in Figure \ref{fig:paste-syntax}. Pasting automatically copies the word version of what you clicked into your opened syntax.
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/example_syntax} \caption{What a full syntax looks like}\label{fig:full-syntax}
+\end{figure}
+
+\hypertarget{trick1}{%
+\chapter{Trick 1 - Paste to syntax}\label{trick1}}
+
+\textbf{If you can develop one habit, it is this!!!} The good thing about interacting with SPSS using syntax, is that you do not have to be a total convert. You can continue using the ``point and click'' interface, but instead of executing the command, press \textbf{paste} as you see in Figure \ref{fig:paste-syntax}. Pasting automatically copies the word version of what you clicked into your opened syntax.
 
 \begin{figure}
 \includegraphics[width=0.6\linewidth]{images/paste_syntax} \caption{Paste the syntax you generated implicitly by clicking}\label{fig:paste-syntax}
@@ -168,29 +172,23 @@ To run each command, highlight and press the play button like in Figure \ref{fig
 \includegraphics[width=0.8\linewidth]{images/run_syntax} \caption{Executing a command}\label{fig:play}
 \end{figure}
 
-\hypertarget{trick-2---setting-your-work-directory}{%
-\chapter*{Trick 2 - Setting your work directory}\label{trick-2---setting-your-work-directory}}
-\addcontentsline{toc}{chapter}{Trick 2 - Setting your work directory}
+\hypertarget{trick2}{%
+\chapter{Trick 2 - Setting your work directory}\label{trick2}}
 
 When importing data from deeply nested folders, it can be a pain to do so. In addition, when exporting files or figures, many often scratch their head as to where the files went to. The solution to this is to \textbf{explicitly} define the folder on your computer where every thing starts and ends. All the files will be exported to that folder. And importing becomes a breeze.
 
 You can set the working directory by pasting the command below into your SPSS syntax, and change the folder path to your path. Just make sure to enclose it in \texttt{"\ "}.
 
-Highlight this command and press the play button.
-
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{cd }\StringTok{\textquotesingle{}C:\textbackslash{}Box\textbackslash{}myBox\textbackslash{}Documents}\SpecialCharTok{\textbackslash{}t}\StringTok{eaching\textbackslash{}SE738\textbackslash{}spss\textquotesingle{}}\NormalTok{.}
+\NormalTok{cd }\StringTok{\textquotesingle{}C:\textbackslash{}Box\textbackslash{}myBox\textbackslash{}Documents}\SpecialCharTok{\textbackslash{}t}\StringTok{eaching\textbackslash{}Statistics\textbackslash{}SPSS\textbackslash{}wrangling\textbackslash{}Essex\_SPSS\_summer\textbackslash{}data\textquotesingle{}}\NormalTok{.}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{trick-3---importing-data}{%
-\chapter*{Trick 3 - Importing data}\label{trick-3---importing-data}}
-\addcontentsline{toc}{chapter}{Trick 3 - Importing data}
+\hypertarget{trick3}{%
+\chapter{Trick 3 - Importing data}\label{trick3}}
 
-The most common starting point for data analysis is Excel, so I will demonstrate how to easily import an Excel file. Paste the command below into your syntax, and simply change the file name \texttt{df.xlsx} to whatever your file is named. Remember not to change the file extension \texttt{.xlsx}. If your Excel file has multiple sheets, change the sheet name \texttt{jump} to whatever it is named. If you only have one sheet, you can leave it blank.
-
-Highlight this command and press the play button.
+The most common starting point for data analysis is Excel, so I will demonstrate how to easily import an Excel file. Paste the command below into your syntax, and simply change the file name \texttt{df.xlsx} to whatever your file is named. Remember not to change the file extension \texttt{.xlsx}. Notice I did not to do this \texttt{"\textquotesingle{}C:\textbackslash{}Box\textbackslash{}myBox\textbackslash{}Documents\textbackslash{}teaching\textbackslash{}Statistics\textbackslash{}SPSS\textbackslash{}wrangling\textbackslash{}Essex\_SPSS\_summer\textbackslash{}data\textbackslash{}df.xlsx\textquotesingle{}"}. It was because I already defined the path the file was in trick \ref{trick2}. If your Excel file has multiple sheets, change the sheet name \texttt{jump} to whatever it is named. If you only have one sheet, you can leave it blank.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -211,9 +209,8 @@ Using the sample data I provide, this is what the data looks like in Figure \ref
 \includegraphics[width=1\linewidth]{images/original_data} \caption{Original data}\label{fig:original}
 \end{figure}
 
-\hypertarget{trick-4---rename-columns}{%
-\chapter*{Trick 4 - Rename columns}\label{trick-4---rename-columns}}
-\addcontentsline{toc}{chapter}{Trick 4 - Rename columns}
+\hypertarget{trick4}{%
+\chapter{Trick 4 - Rename columns}\label{trick4}}
 
 Rename columns is a common task. Paste the command below into your syntax and run it. Put all the original column names before the \texttt{=} and all the new names after. There must be a spacing between each name, and the order preceding and proceding the \texttt{=} must be identical.
 
@@ -229,29 +226,26 @@ After renaming this is what the data looks like in Figure \ref{fig:rename-col}.
 \includegraphics[width=1\linewidth]{images/rename} \caption{New column names}\label{fig:rename-col}
 \end{figure}
 
-\hypertarget{trick-5---filter-rows}{%
-\chapter*{Trick 5 - Filter rows}\label{trick-5---filter-rows}}
-\addcontentsline{toc}{chapter}{Trick 5 - Filter rows}
+\hypertarget{trick5}{%
+\chapter{Trick 5 - Filter rows}\label{trick5}}
 
 You might want to keep rows in your data based on some conditions. I tend to prefer to keep whatever rows I want and discard the remaining. Discarding your data does not harm your original data in Excel. If you change your mind, just highlight all the commands from the start and press the play button. In the example below, I want to keep rows where the variable \texttt{task} is equal \texttt{"cmjbw"} AND \texttt{side} is equal to ``\texttt{R}''. Below are some of the operators you can mix and match to powerfully filter our your data.
 
-\textbf{Symbols}
-
-\texttt{=} Equal
-
-\texttt{\textasciitilde{}=} Not equal
-
-\texttt{\textless{}} Less than
-
-\texttt{\textless{}=} Less than or equal
-
-\texttt{\textgreater{}} More than
-
-\texttt{\textgreater{}=} More than or equal
-
-\texttt{\&} AND
-
-\texttt{\textbar{}} OR
+\begin{longtable}[]{@{}lr@{}}
+\toprule
+Symbols & Meaning \\
+\midrule
+\endhead
+\texttt{=} & Equal \\
+\texttt{\textasciitilde{}=} & Not equal \\
+\texttt{\textless{}} & Less than \\
+\texttt{\textless{}=} & Less than or equal \\
+\texttt{\textgreater{}} & More than \\
+\texttt{\textgreater{}=} & More than or equal \\
+\texttt{\&} & AND \\
+\texttt{\textbar{}} & OR \\
+\bottomrule
+\end{longtable}
 
 Highlight this command and press the play button.
 
@@ -270,9 +264,8 @@ After filtering this is what the data looks like in Figure \ref{fig:filter-row}.
 \includegraphics[width=1\linewidth]{images/filter} \caption{Keeping rows based on some conditions}\label{fig:filter-row}
 \end{figure}
 
-\hypertarget{trick-6---create-new-variables}{%
-\chapter*{Trick 6 - Create new variables}\label{trick-6---create-new-variables}}
-\addcontentsline{toc}{chapter}{Trick 6 - Create new variables}
+\hypertarget{trick6}{%
+\chapter{Trick 6 - Create new variables}\label{trick6}}
 
 You might want to create new variables, such as calculating BMI from height and mass. Add as many \texttt{COMPUTE} function below as needed. The command reads as \texttt{COMPUTE\ height\ =\ ht/100.}, make a new variable called \texttt{height} by dividing the original variable\texttt{ht} by 100. You can either create a new variable or replace the existing variable by using a new name or the original name, respectively.
 
@@ -305,9 +298,8 @@ After computing new variables this is what the data looks like in Figure \ref{fi
 \includegraphics[width=1\linewidth]{images/mutate} \caption{New variables created}\label{fig:mutate}
 \end{figure}
 
-\hypertarget{trick-7---aggregate-data}{%
-\chapter*{Trick 7 - Aggregate data}\label{trick-7---aggregate-data}}
-\addcontentsline{toc}{chapter}{Trick 7 - Aggregate data}
+\hypertarget{trick7}{%
+\chapter{Trick 7 - Aggregate data}\label{trick7}}
 
 You may want to find some summary statistics for each level of a grouping variable. In the example below, I want to calculate for each id, in each group, at each time, find the mean (\texttt{MEAN}), minimum (\texttt{MIN}), maximum (\texttt{MAX}), standard deviation (\texttt{SD}), and median (\texttt{MEDIAN}) of the following variables (\texttt{aexttorq}, \texttt{aextwork}, \texttt{aextpow}). When you see this argument, \texttt{/aexttorq\_mean=MEAN(aexttorq)}, the value before \texttt{=} represents the new variable name. However many aggregate values you desire, add as many arguments on a separate line. In this command, the aggregate data is pasted onto a separate data window called \texttt{aggregate\_data} - you can give the new data window any name.
 
@@ -331,9 +323,8 @@ After aggregating this is what the data looks like in Figure \ref{fig:aggregate}
 \includegraphics[width=1\linewidth]{images/aggregate} \caption{Aggregated summary}\label{fig:aggregate}
 \end{figure}
 
-\hypertarget{trick-8---group-by-function}{%
-\chapter*{Trick 8 - Group by function}\label{trick-8---group-by-function}}
-\addcontentsline{toc}{chapter}{Trick 8 - Group by function}
+\hypertarget{trick8}{%
+\chapter{Trick 8 - Group by function}\label{trick8}}
 
 Many times you want to do the same thing repeatedly on certain chunks of data. For example, you want to find the mean strength on each level of sex (male, female), or even each level of the combination of sex-side (male-right, male-left, female-right, female-left). Precede whatever function you want to execute, with the command below. In the command below, I want to do the same analysis for each level of the combination of \texttt{grp} and \texttt{side}. This works for categorical variables. Replace \texttt{grp} and \texttt{side} with however many variables you want to split the data by.
 
@@ -354,9 +345,8 @@ After grouping the data, when I ran a descriptive analysis, this is what the res
 \includegraphics[width=0.6\linewidth]{images/group-by} \caption{Group-by descriptives}\label{fig:group-by}
 \end{figure}
 
-\hypertarget{trick-9---wide-to-long}{%
-\chapter*{Trick 9 - Wide to long}\label{trick-9---wide-to-long}}
-\addcontentsline{toc}{chapter}{Trick 9 - Wide to long}
+\hypertarget{trick9}{%
+\chapter{Trick 9 - Wide to long}\label{trick9}}
 
 \begin{figure}
 \includegraphics[width=1\linewidth]{images/wide_data} \caption{Wide data}\label{fig:ugly}
@@ -384,13 +374,12 @@ After running the command, this is what the results looks like in Figure \ref{fi
 \includegraphics[width=1\linewidth]{images/long_data} \caption{Long data}\label{fig:tidy}
 \end{figure}
 
-\hypertarget{trick-10---long-to-wide}{%
-\chapter*{Trick 10 - Long to wide}\label{trick-10---long-to-wide}}
-\addcontentsline{toc}{chapter}{Trick 10 - Long to wide}
+\hypertarget{trick10}{%
+\chapter{Trick 10 - Long to wide}\label{trick10}}
 
 Just in case you need to make the data wide again. The two key commands are \texttt{/ID=id\ grp\ time} and \texttt{/INDEX=mediator}. \texttt{/ID} represents how each data point will be uniquely identified. \texttt{/INDEX} represents the variable you want to spread by.
 
-Notice that trick 10 and 9 are mirror images. the \texttt{/ID} command in trick 10 should be identical to the \texttt{/KEEP} in trick 9. The \texttt{/INDEX} in both tricks 10 and 9 should contain the variable name you want to spread by.
+Notice that trick \ref{trick10} and \ref{trick9} are mirror images. the \texttt{/ID} command in trick 10 should be identical to the \texttt{/KEEP} in trick \ref{trick9}. The \texttt{/INDEX} in both tricks \ref{trick10} and \ref{trick9} should contain the variable name you want to spread by.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -402,6 +391,11 @@ Notice that trick 10 and 9 are mirror images. the \texttt{/ID} command in trick 
 \end{Shaded}
 
 After running the command, the data looks like in Figure \ref{fig:ugly} again.
+
+\hypertarget{conclusion}{%
+\chapter{Conclusion}\label{conclusion}}
+
+Notice how I did not even touch of saving any outputs. The reason for that is that one should first save all the commands ran rather than the results. Saving the process allows you to replicate your actions, saving your results will not.
 
   \bibliography{book.bib}
 
