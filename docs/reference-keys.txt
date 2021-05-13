@@ -1,0 +1,12 @@
+fig:first-syntax
+fig:paste-syntax
+fig:paste-syntax2
+fig:play
+fig:original
+fig:rename-col
+fig:filter-row
+fig:mutate
+fig:aggregate
+fig:group-by
+fig:ugly
+fig:tidy
