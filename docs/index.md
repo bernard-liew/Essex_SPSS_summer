@@ -1,7 +1,7 @@
 --- 
 title: "Ten SPSS tricks to make your peers jealous"
 author: "Bernard Liew"
-date: "2021-05-12"
+date: "2021-05-13"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: book.bib
