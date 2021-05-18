@@ -7,16 +7,18 @@ documentclass: book
 bibliography: book.bib
 biblio-style: apalike
 link-citations: yes
+output:
+  html_document: default
 ---
 # Introduction 
 
-Most people interact with SPSS using what I call the "point and click" interface. A point-click method is not wrong per-se, I use it. The bad thing about the point-click method is that:
+Most people interact with SPSS using what I call the "point and click" interface. A point-click method is not wrong per se, I use it. The bad thing about the point-click method is that:
 
 1) You cannot easily remember what you did. Try recalling the exact order of actions you undertook the last time you analyzed your data in SPSS. It is for this reason why one gets nervous reproducing the results.
 
-2) It gets tedious really quickly, especially if you want to do the same thing repeatedly.
+2) It gets tedious quickly, especially if you want to do the same thing repeatedly.
 
-The alternative to the "point and click" interface, is using the **SPSS syntax**. Syntax is all about typing. You can open a fresh syntax like in Figure \@ref(fig:first-syntax), populate it with commands to run, and save it. My rule of thumb is, when you spend so long getting something commands running, save your commands, not your results.
+The alternative to the "point and click" interface, is using the **SPSS syntax**. Syntax is all about typing. You can open a fresh syntax like in Figure \@ref(fig:first-syntax), populate it with commands to run, and save it. My rule of thumb is when you spend so long getting something commands running, save your commands, not your results.
 
 
 ```{r first-syntax, fig.cap="Open your first syntax", out.width = '100%', echo = FALSE}
@@ -30,5 +32,15 @@ Figure \@ref(fig:full-syntax) shows what a full syntax looks like when you strin
 ```{r full-syntax, fig.cap="What a full syntax looks like", out.width = '100%', echo = FALSE}
 
 knitr::include_graphics("images/example_syntax.png")
+
+```
+
+
+You can download the file for the lesson here below:
+
+```{r echo=FALSE}
+# a single file
+xfun::embed_file('data/df.xlsx')
+
 
 ```

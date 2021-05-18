@@ -1,0 +1,52 @@
+---
+output:
+  html_document: default
+---
+
+# Practice {#practice}
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+library (tidyverse)
+library (kableExtra)
+```
+
+
+The file for this practice can be downloaded below.
+
+```{r, echo = FALSE}
+ xfun::embed_file("data/practice.xlsx")
+```
+
+```{r, echo = FALSE}
+practice <- readxl::read_excel("data/practice.xlsx")
+```
+
+The aim of this practice is to use the tricks taught to convert the original dataframe found in Table \@ref(tab:original-practice) to the final dataframe in Table \@ref(tab:final-practice).
+
+```{r original-practice, echo = FALSE}
+kable(practice, "html", caption = "Original data.") %>%
+    kableExtra::kable_styling() %>%
+    scroll_box(width = "100%", height = "700px")
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+practice <- practice %>%
+  select (subj, group, aexttorq, time) %>%
+  rename (id = subj,
+          grp = group) %>%
+  group_by(id, grp, time) %>%
+  summarize (aexttorq_mean = mean (aexttorq))
+```
+
+```{r final-practice, echo = FALSE}
+kable(practice, "html", caption = "Final data.") %>%
+    kableExtra::kable_styling() %>%
+    scroll_box(width = "100%", height = "700px")
+```
+
+The answer for this practice can be found below.
+
+```{r, echo = FALSE}
+ xfun::embed_file("data/practice.sps")
+```

@@ -11,7 +11,10 @@ fig:aggregate
 fig:group-by
 fig:ugly
 fig:tidy
+tab:original-practice
+tab:final-practice
 introduction
+bag-of-tricks
 trick1
 trick2
 trick3
@@ -23,3 +26,4 @@ trick8
 trick9
 trick10
 conclusion
+practice
