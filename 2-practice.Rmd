@@ -23,6 +23,8 @@ practice <- readxl::read_excel("data/practice.xlsx")
 
 The aim of this practice is to use the tricks taught to convert the original dataframe found in Table \@ref(tab:original-practice) to the final dataframe in Table \@ref(tab:final-practice).
 
+## Original table
+
 ```{r original-practice, echo = FALSE}
 kable(practice, "html", caption = "Original data.") %>%
     kableExtra::kable_styling() %>%
@@ -38,6 +40,8 @@ practice <- practice %>%
   group_by(id, grp, time) %>%
   summarize (aexttorq_mean = mean (aexttorq))
 ```
+
+## Final table
 
 ```{r final-practice, echo = FALSE}
 kable(practice, "html", caption = "Final data.") %>%

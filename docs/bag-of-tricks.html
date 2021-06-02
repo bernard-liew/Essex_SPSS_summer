@@ -24,7 +24,7 @@
 <meta name="author" content="Bernard Liew" />
 
 
-<meta name="date" content="2021-05-17" />
+<meta name="date" content="2021-06-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="practice.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -151,7 +151,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.10" data-path="bag-of-tricks.html"><a href="bag-of-tricks.html#trick10"><i class="fa fa-check"></i><b>2.10</b> Trick 10 - Long to wide</a></li>
 <li class="chapter" data-level="2.11" data-path="bag-of-tricks.html"><a href="bag-of-tricks.html#conclusion"><i class="fa fa-check"></i><b>2.11</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="practice.html"><a href="practice.html"><i class="fa fa-check"></i><b>3</b> Practice</a></li>
+<li class="chapter" data-level="3" data-path="practice.html"><a href="practice.html"><i class="fa fa-check"></i><b>3</b> Practice</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="practice.html"><a href="practice.html#original-table"><i class="fa fa-check"></i><b>3.1</b> Original table</a></li>
+<li class="chapter" data-level="3.2" data-path="practice.html"><a href="practice.html#final-table"><i class="fa fa-check"></i><b>3.2</b> Final table</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -192,7 +196,7 @@ Figure 2.2: Always try to paste your syntax rather than executing
 </div>
 <p>To run each command, highlight and press the play button like in Figure <a href="bag-of-tricks.html#fig:play">2.3</a>.</p>
 <div class="figure"><span id="fig:play"></span>
-<img src="images/run_syntax.png" alt="Executing a command" width="80%" />
+<img src="images/run_syntax.png" alt="Executing a command" width="100%" />
 <p class="caption">
 Figure 2.3: Executing a command
 </p>
@@ -200,8 +204,9 @@ Figure 2.3: Executing a command
 </div>
 <div id="trick2" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Trick 2 - Setting your work directory</h2>
-<p>When importing data from deeply nested folders, it can be a pain to do so. In addition, when exporting files or figures, many often scratch their head as to where the files went to. The solution to this is to <strong>explicitly</strong> define the folder on your computer where everything starts and ends. All the files will be exported to that folder. And importing becomes a breeze.</p>
-<p>You can set the working directory by pasting the command below into your SPSS syntax, and change the folder path to your path. Just make sure to enclose it in <code>" "</code>.</p>
+<p>When importing data from deeply nested folders, it can be a pain to do so. In addition, when exporting files or figures, many often scratch their head as to where the files went to. The solution to this is to <strong>explicitly</strong> define the folder on your computer where everything starts and ends. All the files will be exported to that folder. And importing becomes a breeze.
+gh
+You can set the working directory by pasting the command below into your SPSS syntax, and change the folder path to your path. Just make sure to enclose it in <code>" "</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="bag-of-tricks.html#cb1-1" aria-hidden="true" tabindex="-1"></a>cd <span class="st">&#39;C:\Box\myBox\Documents</span><span class="sc">\t</span><span class="st">eaching\Statistics\SPSS\wrangling\Essex_SPSS_summer\data&#39;</span>.</span></code></pre></div>
 </div>
 <div id="trick3" class="section level2" number="2.3">

@@ -27,3 +27,5 @@ trick9
 trick10
 conclusion
 practice
+original-table
+final-table

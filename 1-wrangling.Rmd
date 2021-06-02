@@ -34,7 +34,7 @@ knitr::include_graphics("images/run_syntax.png")
 ## Trick 2 - Setting your work directory {#trick2}
 
 When importing data from deeply nested folders, it can be a pain to do so. In addition, when exporting files or figures, many often scratch their head as to where the files went to. The solution to this is to **explicitly** define the folder on your computer where everything starts and ends. All the files will be exported to that folder. And importing becomes a breeze.
-
+gh
 You can set the working directory by pasting the command below into your SPSS syntax, and change the folder path to your path. Just make sure to enclose it in `" "`.
 
 ```{r eval = FALSE}

@@ -24,14 +24,14 @@ I have not ever encountered an SPSS function that does not eventually have a pas
 To run each command, highlight and press the play button like in Figure \@ref(fig:play).
 
 <div class="figure">
-<img src="images/run_syntax.png" alt="Executing a command" width="80%" />
+<img src="images/run_syntax.png" alt="Executing a command" width="100%" />
 <p class="caption">(\#fig:play)Executing a command</p>
 </div>
 
 ## Trick 2 - Setting your work directory {#trick2}
 
 When importing data from deeply nested folders, it can be a pain to do so. In addition, when exporting files or figures, many often scratch their head as to where the files went to. The solution to this is to **explicitly** define the folder on your computer where everything starts and ends. All the files will be exported to that folder. And importing becomes a breeze.
-
+gh
 You can set the working directory by pasting the command below into your SPSS syntax, and change the folder path to your path. Just make sure to enclose it in `" "`.
 
 
