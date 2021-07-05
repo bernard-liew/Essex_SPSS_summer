@@ -24,7 +24,7 @@
 <meta name="author" content="Bernard Liew" />
 
 
-<meta name="date" content="2021-06-02" />
+<meta name="date" content="2021-07-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -145,10 +145,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4" data-path="bag-of-tricks.html"><a href="bag-of-tricks.html#trick4"><i class="fa fa-check"></i><b>2.4</b> Trick 4 - Rename columns</a></li>
 <li class="chapter" data-level="2.5" data-path="bag-of-tricks.html"><a href="bag-of-tricks.html#trick5"><i class="fa fa-check"></i><b>2.5</b> Trick 5 - Filter rows</a></li>
 <li class="chapter" data-level="2.6" data-path="bag-of-tricks.html"><a href="bag-of-tricks.html#trick6"><i class="fa fa-check"></i><b>2.6</b> Trick 6 - Create new variables</a></li>
-<li class="chapter" data-level="2.7" data-path="bag-of-tricks.html"><a href="bag-of-tricks.html#trick7"><i class="fa fa-check"></i><b>2.7</b> Trick 7 - Aggregate data</a></li>
-<li class="chapter" data-level="2.8" data-path="bag-of-tricks.html"><a href="bag-of-tricks.html#trick8"><i class="fa fa-check"></i><b>2.8</b> Trick 8 - Group by function</a></li>
-<li class="chapter" data-level="2.9" data-path="bag-of-tricks.html"><a href="bag-of-tricks.html#trick9"><i class="fa fa-check"></i><b>2.9</b> Trick 9 - Wide to long</a></li>
-<li class="chapter" data-level="2.10" data-path="bag-of-tricks.html"><a href="bag-of-tricks.html#trick10"><i class="fa fa-check"></i><b>2.10</b> Trick 10 - Long to wide</a></li>
+<li class="chapter" data-level="2.7" data-path="bag-of-tricks.html"><a href="bag-of-tricks.html#trick7"><i class="fa fa-check"></i><b>2.7</b> Trick 7 - Group by function</a></li>
+<li class="chapter" data-level="2.8" data-path="bag-of-tricks.html"><a href="bag-of-tricks.html#trick8"><i class="fa fa-check"></i><b>2.8</b> Trick 8 - Aggregate data</a></li>
+<li class="chapter" data-level="2.9" data-path="bag-of-tricks.html"><a href="bag-of-tricks.html#trick9"><i class="fa fa-check"></i><b>2.9</b> Trick 9 - Long to wide</a></li>
+<li class="chapter" data-level="2.10" data-path="bag-of-tricks.html"><a href="bag-of-tricks.html#trick10"><i class="fa fa-check"></i><b>2.10</b> Trick 10 - Wide to long</a></li>
 <li class="chapter" data-level="2.11" data-path="bag-of-tricks.html"><a href="bag-of-tricks.html#conclusion"><i class="fa fa-check"></i><b>2.11</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="practice.html"><a href="practice.html"><i class="fa fa-check"></i><b>3</b> Practice</a>
@@ -319,54 +319,63 @@ Figure 2.7: New variables created
 </div>
 </div>
 <div id="trick7" class="section level2" number="2.7">
-<h2><span class="header-section-number">2.7</span> Trick 7 - Aggregate data</h2>
-<p>You may want to find some summary statistics for each level of a grouping variable. In the example below, I want to calculate for each id, in each group, at each time, find the mean (<code>MEAN</code>), minimum (<code>MIN</code>), maximum (<code>MAX</code>), standard deviation (<code>SD</code>), and median (<code>MEDIAN</code>) of the following variables (<code>aexttorq</code>, <code>aextwork</code>, <code>aextpow</code>). When you see this argument, <code>/aexttorq_mean=MEAN(aexttorq)</code>, the value before <code>=</code> represents the new variable name. However many aggregate values you desire, add as many arguments on a separate line. In this command, the aggregate data is pasted onto a separate data window called <code>aggregate_data</code> - you can give the new data window any name.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="bag-of-tricks.html#cb6-1" aria-hidden="true" tabindex="-1"></a>DATASET DECLARE aggregate_data.</span>
-<span id="cb6-2"><a href="bag-of-tricks.html#cb6-2" aria-hidden="true" tabindex="-1"></a>AGGREGATE</span>
-<span id="cb6-3"><a href="bag-of-tricks.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>OUTFILE<span class="ot">=</span><span class="st">&#39;aggregate_data&#39;</span></span>
-<span id="cb6-4"><a href="bag-of-tricks.html#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>BREAK<span class="ot">=</span>id grp time </span>
-<span id="cb6-5"><a href="bag-of-tricks.html#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>aexttorq_mean<span class="ot">=</span><span class="fu">MEAN</span>(aexttorq) </span>
-<span id="cb6-6"><a href="bag-of-tricks.html#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>aextwork_min<span class="ot">=</span><span class="fu">MIN</span>(aextwork) </span>
-<span id="cb6-7"><a href="bag-of-tricks.html#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>aextpow_max<span class="ot">=</span><span class="fu">MAX</span>(aextpow) </span>
-<span id="cb6-8"><a href="bag-of-tricks.html#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>aexttorq_sd<span class="ot">=</span><span class="fu">SD</span>(aexttorq) </span>
-<span id="cb6-9"><a href="bag-of-tricks.html#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>aextwork_median<span class="ot">=</span><span class="fu">MEDIAN</span>(aextwork).</span></code></pre></div>
-<p>After aggregating, this is what the data looks like in Figure <a href="bag-of-tricks.html#fig:aggregate">2.8</a>.</p>
-<div class="figure"><span id="fig:aggregate"></span>
-<img src="images/aggregate.png" alt="Aggregated summary" width="100%" />
+<h2><span class="header-section-number">2.7</span> Trick 7 - Group by function</h2>
+<p>Many times you want to do the same thing repeatedly on certain chunks of data. For example, you want to find the mean strength on each level of sex (male, female), or even each level of the combination of sex-side (male-right, male-left, female-right, female-left). Precede whatever function you want to execute, with the command below. In the command below, I want to do the same analysis for each level of the combination of <code>grp</code> and <code>time</code>. This works for categorical variables. Replace <code>grp</code> and <code>time</code> with however many variables you want to split the data by.</p>
+<p><em>PS</em> This means you can run the same stats on each split of the data by running the stats only once if you use this command.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="bag-of-tricks.html#cb6-1" aria-hidden="true" tabindex="-1"></a>SORT CASES  BY grp time.</span>
+<span id="cb6-2"><a href="bag-of-tricks.html#cb6-2" aria-hidden="true" tabindex="-1"></a>SPLIT FILE SEPARATE BY grp time.</span></code></pre></div>
+<p>After grouping the data, when I ran a descriptive analysis, this is what the results looks like in Figure <a href="bag-of-tricks.html#fig:group-by">2.8</a>.</p>
+<div class="figure"><span id="fig:group-by"></span>
+<img src="images/group-by.PNG" alt="Group-by descriptives" width="60%" />
 <p class="caption">
-Figure 2.8: Aggregated summary
+Figure 2.8: Group-by descriptives
 </p>
 </div>
 </div>
 <div id="trick8" class="section level2" number="2.8">
-<h2><span class="header-section-number">2.8</span> Trick 8 - Group by function</h2>
-<p>Many times you want to do the same thing repeatedly on certain chunks of data. For example, you want to find the mean strength on each level of sex (male, female), or even each level of the combination of sex-side (male-right, male-left, female-right, female-left). Precede whatever function you want to execute, with the command below. In the command below, I want to do the same analysis for each level of the combination of <code>grp</code> and <code>side</code>. This works for categorical variables. Replace <code>grp</code> and <code>side</code> with however many variables you want to split the data by.</p>
-<p><em>PS</em> This means you can run the same stats on each split of the data by running the stats only once if you use this command.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="bag-of-tricks.html#cb7-1" aria-hidden="true" tabindex="-1"></a>SORT CASES  BY grp side.</span>
-<span id="cb7-2"><a href="bag-of-tricks.html#cb7-2" aria-hidden="true" tabindex="-1"></a>SPLIT FILE SEPARATE BY grp side.</span></code></pre></div>
-<p>After grouping the data, when I ran a descriptive analysis, this is what the results looks like in Figure <a href="bag-of-tricks.html#fig:group-by">2.9</a>.</p>
-<div class="figure"><span id="fig:group-by"></span>
-<img src="images/group-by.PNG" alt="Group-by descriptives" width="60%" />
+<h2><span class="header-section-number">2.8</span> Trick 8 - Aggregate data</h2>
+<p>You may want to find some summary statistics for each level of a grouping variable. In the example below, I want to calculate for each id, in each group, at each time, find the mean (<code>MEAN</code>), minimum (<code>MIN</code>), maximum (<code>MAX</code>), standard deviation (<code>SD</code>), and median (<code>MEDIAN</code>) of the following variables (<code>aexttorq</code>, <code>aextwork</code>, <code>aextpow</code>). When you see this argument, <code>/aexttorq_mean=MEAN(aexttorq)</code>, the value before <code>=</code> represents the new variable name. However many aggregate values you desire, add as many arguments on a separate line. In this command, the aggregate data is pasted onto a separate data window called <code>aggregate_data</code> - you can give the new data window any name.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="bag-of-tricks.html#cb7-1" aria-hidden="true" tabindex="-1"></a>DATASET DECLARE aggregate_data.</span>
+<span id="cb7-2"><a href="bag-of-tricks.html#cb7-2" aria-hidden="true" tabindex="-1"></a>AGGREGATE</span>
+<span id="cb7-3"><a href="bag-of-tricks.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>OUTFILE<span class="ot">=</span><span class="st">&#39;aggregate_data&#39;</span></span>
+<span id="cb7-4"><a href="bag-of-tricks.html#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>BREAK<span class="ot">=</span>id grp time </span>
+<span id="cb7-5"><a href="bag-of-tricks.html#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>aexttorq_mean<span class="ot">=</span><span class="fu">MEAN</span>(aexttorq) </span>
+<span id="cb7-6"><a href="bag-of-tricks.html#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>aextwork_min<span class="ot">=</span><span class="fu">MIN</span>(aextwork) </span>
+<span id="cb7-7"><a href="bag-of-tricks.html#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>aextpow_max<span class="ot">=</span><span class="fu">MAX</span>(aextpow) </span>
+<span id="cb7-8"><a href="bag-of-tricks.html#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>aexttorq_sd<span class="ot">=</span><span class="fu">SD</span>(aexttorq) </span>
+<span id="cb7-9"><a href="bag-of-tricks.html#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>aextwork_median<span class="ot">=</span><span class="fu">MEDIAN</span>(aextwork).</span></code></pre></div>
+<p>After aggregating, this is what the data looks like in Figure <a href="bag-of-tricks.html#fig:aggregate">2.9</a>.</p>
+<div class="figure"><span id="fig:aggregate"></span>
+<img src="images/aggregate.png" alt="Aggregated summary" width="100%" />
 <p class="caption">
-Figure 2.9: Group-by descriptives
+Figure 2.9: Aggregated summary
 </p>
 </div>
 </div>
 <div id="trick9" class="section level2" number="2.9">
-<h2><span class="header-section-number">2.9</span> Trick 9 - Wide to long</h2>
+<h2><span class="header-section-number">2.9</span> Trick 9 - Long to wide</h2>
+<p>The two key commands are <code>/ID=id grp</code> and <code>/INDEX=time</code>. <code>/ID</code> represents how each data point will be uniquely identified. <code>/INDEX</code> represents the variable you want to spread by.</p>
+<p>Notice that trick <a href="bag-of-tricks.html#trick9">2.9</a> and <a href="bag-of-tricks.html#trick10">2.10</a> are mirror images. the <code>/ID</code> command in trick 10 should be identical to the <code>/KEEP</code> in trick <a href="bag-of-tricks.html#trick9">2.9</a>. The <code>/INDEX</code> in both tricks <a href="bag-of-tricks.html#trick9">2.9</a> and <a href="bag-of-tricks.html#trick10">2.10</a> should contain the variable name you want to spread by.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="bag-of-tricks.html#cb8-1" aria-hidden="true" tabindex="-1"></a>CASESTOVARS</span>
+<span id="cb8-2"><a href="bag-of-tricks.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>ID<span class="ot">=</span>id grp</span>
+<span id="cb8-3"><a href="bag-of-tricks.html#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>INDEX<span class="ot">=</span>time</span>
+<span id="cb8-4"><a href="bag-of-tricks.html#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>GROUPBY<span class="ot">=</span>VARIABLE.</span></code></pre></div>
 <div class="figure"><span id="fig:ugly"></span>
 <img src="images/wide_data.png" alt="Wide data" width="100%" />
 <p class="caption">
 Figure 2.10: Wide data
 </p>
 </div>
+</div>
+<div id="trick10" class="section level2" number="2.10">
+<h2><span class="header-section-number">2.10</span> Trick 10 - Wide to long</h2>
 <p>Typically data is keyed into Excel in the wide-format like in Figure <a href="bag-of-tricks.html#fig:ugly">2.10</a>. In &gt; 90% of any data analysis, data should <strong>NOT</strong> be in this format. The only thing I know in SPSS that requires data to be in the wide-format is when you want to use Repeated Measures Anova or a Paired t-test. So it is useful to know how to convert data to a long format since &gt; 90% of SPSS function requires data to be in a long format.</p>
-<p><code>/MAKE val FROM aexttorq_pre aexttorq_post</code> says collect all the variables <code>aexttorq_pre</code>, <code>aexttorq_post</code> and stack their values on top of each other. The column containing the values is called <code>val</code>. The column where the names of the values are stored is called <code>mediator</code>. Remember, you can call the new columns anything you want. <code>/KEEP=id grp time</code> simply says keep the following columns in the new data.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="bag-of-tricks.html#cb8-1" aria-hidden="true" tabindex="-1"></a>VARSTOCASES</span>
-<span id="cb8-2"><a href="bag-of-tricks.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>MAKE val FROM aexttorq_pre aexttorq_post </span>
-<span id="cb8-3"><a href="bag-of-tricks.html#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>INDEX<span class="ot">=</span><span class="fu">mediator</span>(val) </span>
-<span id="cb8-4"><a href="bag-of-tricks.html#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>KEEP<span class="ot">=</span>id grp time</span>
-<span id="cb8-5"><a href="bag-of-tricks.html#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span><span class="cn">NULL</span><span class="ot">=</span>KEEP.</span></code></pre></div>
+<p><code>/MAKE aexttorq_mean FROM aexttorq_mean.POST aexttorq_mean.PRE</code> says collect all the variables <code>aexttorq_mean.POST</code>, <code>aexttorq_mean.PRE</code> and stack their values on top of each other. The column containing the values is called <code>aexttorq_mean</code>. The column where the names of the values are stored is called <code>time</code>. Remember, you can call the new columns anything you want. <code>/KEEP=id grp</code> simply says keep the following columns in the new data.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="bag-of-tricks.html#cb9-1" aria-hidden="true" tabindex="-1"></a>VARSTOCASES</span>
+<span id="cb9-2"><a href="bag-of-tricks.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>MAKE aexttorq_mean FROM aexttorq_mean.POST aexttorq_mean.PRE</span>
+<span id="cb9-3"><a href="bag-of-tricks.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>INDEX<span class="ot">=</span>time<span class="st">&quot;POST, PRE&quot;</span></span>
+<span id="cb9-4"><a href="bag-of-tricks.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>KEEP<span class="ot">=</span>id grp </span>
+<span id="cb9-5"><a href="bag-of-tricks.html#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span><span class="cn">NULL</span><span class="ot">=</span>KEEP.</span></code></pre></div>
 <p>After running the command, this is what the results looks like in Figure <a href="bag-of-tricks.html#fig:tidy">2.11</a>.</p>
 <div class="figure"><span id="fig:tidy"></span>
 <img src="images/long_data.png" alt="Long data" width="100%" />
@@ -374,16 +383,6 @@ Figure 2.10: Wide data
 Figure 2.11: Long data
 </p>
 </div>
-</div>
-<div id="trick10" class="section level2" number="2.10">
-<h2><span class="header-section-number">2.10</span> Trick 10 - Long to wide</h2>
-<p>Just in case you need to make the data wide again. The two key commands are <code>/ID=id grp time</code> and <code>/INDEX=mediator</code>. <code>/ID</code> represents how each data point will be uniquely identified. <code>/INDEX</code> represents the variable you want to spread by.</p>
-<p>Notice that trick <a href="bag-of-tricks.html#trick10">2.10</a> and <a href="bag-of-tricks.html#trick9">2.9</a> are mirror images. the <code>/ID</code> command in trick 10 should be identical to the <code>/KEEP</code> in trick <a href="bag-of-tricks.html#trick9">2.9</a>. The <code>/INDEX</code> in both tricks <a href="bag-of-tricks.html#trick10">2.10</a> and <a href="bag-of-tricks.html#trick9">2.9</a> should contain the variable name you want to spread by.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="bag-of-tricks.html#cb9-1" aria-hidden="true" tabindex="-1"></a>CASESTOVARS</span>
-<span id="cb9-2"><a href="bag-of-tricks.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>ID<span class="ot">=</span>id grp time</span>
-<span id="cb9-3"><a href="bag-of-tricks.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>INDEX<span class="ot">=</span>mediator</span>
-<span id="cb9-4"><a href="bag-of-tricks.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">/</span>GROUPBY<span class="ot">=</span>VARIABLE.</span></code></pre></div>
-<p>After running the command, the data looks like in Figure <a href="bag-of-tricks.html#fig:ugly">2.10</a> again.</p>
 </div>
 <div id="conclusion" class="section level2" number="2.11">
 <h2><span class="header-section-number">2.11</span> Conclusion</h2>

@@ -7,8 +7,8 @@ fig:original
 fig:rename-col
 fig:filter-row
 fig:mutate
-fig:aggregate
 fig:group-by
+fig:aggregate
 fig:ugly
 fig:tidy
 tab:original-practice
