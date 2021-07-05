@@ -8,6 +8,8 @@ bibliography: book.bib
 biblio-style: apalike
 link-citations: yes
 output:
+  pdf_document: default
+  always_allow_html: yes
   html_document: default
 ---
 # Introduction 

@@ -1,5 +1,7 @@
 ---
 output:
+  pdf_document: default
+  always_allow_html: yes
   html_document: default
 ---
 
